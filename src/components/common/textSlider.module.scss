@@ -1,0 +1,94 @@
+@import "../../styles/configure.module.scss";
+
+.textSlider {
+  @include fullSizeContainer(absolute);
+  @include flexCenter(row);
+
+  .underlineOutter {
+    @include fullSizeContainer(relative);
+    width: 15px;
+    height: 3px;
+    margin: 0 10px;
+    bottom: 0;
+    overflow: hidden;
+    .underlineInner {
+      @include fullSizeContainer(relative);
+      .front {
+        @include fullSizeContainer(absolute);
+        z-index: 2;
+        background-color: rgba(255, 255, 255, 0.6);
+        transform: translate(0, 0);
+      }
+
+      .animated {
+        animation-name: slideOutRight, slideInLeft;
+        animation-duration: 0.5s, 3.5s;
+        animation-timing-function: ease, ease;
+        animation-delay: 0s, 0.5s;
+        animation-iteration-count: 1, 1;
+      }
+
+      .back {
+        @include fullSizeContainer(absolute);
+        z-index: 1;
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+
+  .textSliderInner {
+    @include flexCenter(row);
+    justify-content: flex-start;
+    width: 80%;
+    height: 100%;
+    margin: 0;
+    @media screen and (max-width: 800px) {
+      width: 70%;
+    }
+    .textHead {
+      margin: 0 30px 0 0;
+      font-weight: 300;
+      width: 20%;
+      @media screen and (max-width: 800px) {
+        margin: 0 10px 0 0;
+      }
+      .txt {
+        @include flexCenter(row);
+      }
+    }
+    .textBody {
+      font-weight: 100;
+      width: 400px;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+
+      .txt {
+        @include fullSizeContainer(absolute);
+        @include flexCenter(row);
+        justify-content: flex-start;
+        top: -100%;
+        transform: translate(0, 0);
+        opacity: 0;
+        transition: transform 1s, opacity 0.5s, top 1s;
+        span {
+          opacity: 0.5;
+        }
+        a {
+          opacity: 0.5;
+          text-decoration: none;
+          color: white;
+        }
+        a:hover {
+          opacity: 1;
+        }
+      }
+      .active {
+        top: 100%;
+        transform: translate(0, -100%);
+        opacity: 1;
+        transition: transform 1s, opacity 0.5s;
+      }
+    }
+  }
+}

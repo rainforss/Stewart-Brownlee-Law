@@ -1,0 +1,72 @@
+$grid-color: rgba(255, 255, 255, 0.08);
+
+.grid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  .rows {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    .top {
+      height: 1px;
+      width: 100%;
+      position: absolute;
+      top: 25%;
+      left: 0;
+      background-color: $grid-color;
+    }
+    .middle {
+      height: 1px;
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      background-color: $grid-color;
+    }
+    .bottom {
+      height: 1px;
+      width: 100%;
+      position: absolute;
+      top: 75%;
+      left: 0;
+      background-color: $grid-color;
+    }
+  }
+  .cols {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    .left {
+      width: 1px;
+      height: 100%;
+      position: absolute;
+      left: 25%;
+      top: 0;
+      background-color: $grid-color;
+      @media screen and (max-width: 800px) {
+        left: 10%;
+      }
+    }
+    .center {
+      width: 1px;
+      height: 100%;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      background-color: $grid-color;
+    }
+    .right {
+      width: 1px;
+      height: 100%;
+      position: absolute;
+      left: 75%;
+      top: 0;
+      background-color: $grid-color;
+      @media screen and (max-width: 800px) {
+        left: 90%;
+      }
+    }
+  }
+}
