@@ -54,8 +54,16 @@ const Blog = ({ data }) => {
       <Head title={data.contentfulBlogPost.title} />
       <div className={blogTemplate.pageWrap}>
         <h2>{data.contentfulBlogPost.title}</h2>
+
         <p>{data.contentfulBlogPost.publishedDate}</p>
-        <img src={data.contentfulBlogPost.headImage.file.url} alt="Headimage" />
+        {data.contentfulBlogPost.headImage ? (
+          <img
+            src={data.contentfulBlogPost.headImage.file.url}
+            alt="Headimage"
+          />
+        ) : (
+          <></>
+        )}
         {documentToReactComponents(data.contentfulBlogPost.body.json, options)}
       </div>
     </Layout>

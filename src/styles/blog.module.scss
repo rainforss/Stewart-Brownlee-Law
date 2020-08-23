@@ -1,4 +1,157 @@
-.test {
-  position: absolute;
-  top: 50%;
+@import "./configure.module.scss";
+
+.blog {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  .background {
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/jpgs/contact.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    .overlay {
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+    }
+  }
+
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    z-index: 3;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    @media screen and (max-width: 800px) {
+      grid-template-columns: 1fr 4fr 4fr 1fr;
+    }
+    .heading {
+      grid-row: 1/2;
+      grid-column: 2/4;
+      color: white;
+      @include flexCenter(row);
+      align-items: flex-end;
+      .text {
+        width: 100%;
+        font-size: 30px;
+        text-align: center;
+        @media screen and (max-width: 800px) {
+          font-size: 20px;
+        }
+        .black {
+          color: rgb(138, 54, 54);
+        }
+        .green {
+          color: rgb(65, 128, 65);
+        }
+      }
+    }
+    .blogWrap {
+      grid-row: 2/4;
+      grid-column: 2/4;
+      overflow: hidden;
+      .blogList {
+        width: 100%;
+        height: 100%;
+        color: white;
+        list-style: none;
+        transition: transform 1s ease-in-out;
+        .listItem {
+          height: 50%;
+          @include flexCenter(row);
+          div {
+            height: initial;
+            * {
+              margin: 5px 0;
+            }
+            a {
+              text-decoration: none;
+              color: white;
+              font-size: 20px;
+            }
+            span {
+              display: block;
+              font-size: 15px;
+              color: rgba(255, 255, 255, 0.7);
+            }
+            p {
+              font-size: 15px;
+              color: rgba(255, 255, 255, 0.7);
+            }
+          }
+        }
+      }
+    }
+    .control {
+      grid-row: 4/5;
+      grid-column: 2/4;
+      position: relative;
+      .prev {
+        top: 50%;
+        left: 0;
+      }
+      .next {
+        top: 50%;
+        right: 0;
+      }
+      .next,
+      .prev {
+        cursor: pointer;
+        position: absolute;
+
+        width: initial;
+        height: initial;
+        transform: translate(0, -50%);
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 20px;
+        .underlineOutter {
+          @include fullSizeContainer(absolute);
+          height: 3px;
+          bottom: 0;
+          overflow: hidden;
+          .underlineInner {
+            @include fullSizeContainer(relative);
+            .front {
+              @include fullSizeContainer(absolute);
+              z-index: 2;
+              background-color: rgba(255, 255, 255, 0.5);
+              transform: translate(0, 0);
+            }
+
+            .back {
+              @include fullSizeContainer(absolute);
+              z-index: 1;
+              background-color: rgba(255, 255, 255, 0.1);
+            }
+          }
+        }
+        &:hover {
+          .front {
+            animation-name: slideOutRight, slideInLeft;
+            animation-duration: 0.3s, 0.3s;
+            animation-timing-function: ease, ease;
+            animation-delay: 0s, 0.3s;
+            animation-iteration-count: 1, 1;
+          }
+        }
+      }
+
+      .pagination {
+        position: absolute;
+        width: 50%;
+        height: 30%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
 }

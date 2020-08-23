@@ -44,6 +44,9 @@
     grid-template-rows: repeat(4, 1fr);
     grid-template-columns: repeat(4, 1fr);
     z-index: 3;
+    @media screen and (max-width: 800px) {
+      grid-template-columns: 1fr 4fr 4fr 1fr;
+    }
     .heading {
       grid-row: 2/3;
       grid-column: 1/3;

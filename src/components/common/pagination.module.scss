@@ -1,0 +1,54 @@
+@import "../../styles/configure.module.scss";
+
+.wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  .pageNumber {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: color 1s;
+    cursor: pointer;
+    span {
+      display: block;
+    }
+    .underlineOutter {
+      @include fullSizeContainer(absolute);
+      height: 3px;
+      bottom: 0;
+      overflow: hidden;
+      .underlineInner {
+        @include fullSizeContainer(relative);
+        .front {
+          @include fullSizeContainer(absolute);
+          z-index: 2;
+          background-color: rgba(255, 255, 255, 0.6);
+          transform: translate(0, 0);
+          transition: background-color 1s;
+        }
+
+        .back {
+          @include fullSizeContainer(absolute);
+          z-index: 1;
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+    &:hover {
+      .front {
+        animation-name: slideOutRight, slideInLeft;
+        animation-duration: 0.3s, 0.3s;
+        animation-timing-function: ease, ease;
+        animation-delay: 0s, 0.3s;
+        animation-iteration-count: 1, 1;
+      }
+    }
+  }
+}
