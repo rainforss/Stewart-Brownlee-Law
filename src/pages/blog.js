@@ -29,7 +29,6 @@ const BlogPage = () => {
     const page = e.currentTarget.getAttribute("name")
     setCurrentPage(parseInt(page))
   }
-  console.log(currentPage)
 
   const data = useStaticQuery(graphql`
     query {
@@ -81,15 +80,25 @@ const BlogPage = () => {
                     <li key={edge.node.id} className={blogStyles.listItem}>
                       <div>
                         <Link to={`/blog/${edge.node.slug}`}>
-                          {edge.node.title}
+                          <div className={blogStyles.linkWrap}>
+                            <div className={blogStyles.front}>
+                              {edge.node.title}
+                            </div>
+                            <div className={blogStyles.back}>
+                              {edge.node.title}
+                            </div>
+                          </div>
                         </Link>
-                        <span>{edge.node.publishedDate}</span>
+                        <span className={blogStyles.date}>
+                          {edge.node.publishedDate}
+                        </span>
                         <p>{edge.node.body.json.content[0].content[0].value}</p>
                       </div>
                     </li>
                   )
                 })}
               </ul>
+              <div className={blogStyles.seperator}></div>
             </div>
             <div className={blogStyles.control}>
               <div className={blogStyles.prev} onClick={prevPage}>

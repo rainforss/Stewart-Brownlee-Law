@@ -114,10 +114,10 @@ const Header = ({ menuOpen, onMenuToggle }) => {
             <span>KNOWLEDGE CENTER</span>
           </Link>
           <div ref={blogSubMenu} className={headerStyles.subMenu}>
-            <a href="">Publications</a>
-            <a href="">Probate Map</a>
-            <a href="">Science & Law</a>
-            <a href="">Evidence & Experts</a>
+            <Link to="/blog">Publications</Link>
+            <Link to="/blog">Probate Map</Link>
+            <Link to="/blog">Science & Law</Link>
+            <Link to="/blog">Evidence & Experts</Link>
           </div>
         </li>
         <li className={headerStyles.navItem}>

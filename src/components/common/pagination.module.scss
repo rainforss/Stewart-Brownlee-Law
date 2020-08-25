@@ -16,6 +16,11 @@
     position: relative;
     transition: color 1s;
     cursor: pointer;
+    @media screen and (max-width: 800px) {
+      width: 20px;
+      height: 20px;
+      font-size: 10px;
+    }
     span {
       display: block;
     }
@@ -31,7 +36,7 @@
           z-index: 2;
           background-color: rgba(255, 255, 255, 0.6);
           transform: translate(0, 0);
-          transition: background-color 1s;
+          transition: background-color 0.5s;
         }
 
         .back {
