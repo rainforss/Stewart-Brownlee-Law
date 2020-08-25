@@ -81,12 +81,12 @@ const BlogPage = () => {
                       <div>
                         <Link to={`/blog/${edge.node.slug}`}>
                           <div className={blogStyles.linkWrap}>
-                            <div className={blogStyles.front}>
+                            <span className={blogStyles.front}>
                               {edge.node.title}
-                            </div>
-                            <div className={blogStyles.back}>
+                            </span>
+                            <span className={blogStyles.back}>
                               {edge.node.title}
-                            </div>
+                            </span>
                           </div>
                         </Link>
                         <span className={blogStyles.date}>
@@ -98,7 +98,15 @@ const BlogPage = () => {
                   )
                 })}
               </ul>
-              <div className={blogStyles.seperator}></div>
+              <div
+                className={blogStyles.seperator}
+                style={{
+                  transform: `translate(${
+                    (100 * currentPage) /
+                    Math.ceil(data.allContentfulBlogPost.pageInfo.itemCount / 2)
+                  }%,-50%)`,
+                }}
+              ></div>
             </div>
             <div className={blogStyles.control}>
               <div className={blogStyles.prev} onClick={prevPage}>
