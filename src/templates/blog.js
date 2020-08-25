@@ -3,6 +3,7 @@ import { graphql, useStaticQuery, Link } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import blogTemplate from "./blog.module.scss"
 import Head from "../components/common/head"
+import background from "../assets/jpgs/contact.jpg"
 
 import Layout from "../components/layout"
 import RouterLink from "../components/common/routerLink"
@@ -81,7 +82,7 @@ const Blog = ({ data }) => {
                   backgroundImage: `url(${data.contentfulBlogPost.headImage.file.url})`,
                 }
               : {
-                  backgroundImage: `url("http://localhost:8000/static/contact-17618291c0d24f53957ab5eca69fe43c.jpg")`,
+                  backgroundImage: `url(${background})`,
                 }
           }
         >
