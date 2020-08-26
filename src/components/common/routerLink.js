@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import routerStyles from "./routerLink.module.scss"
 
 const RouterLink = ({ linkUrl, linkText }) => {
@@ -7,7 +8,9 @@ const RouterLink = ({ linkUrl, linkText }) => {
     <div className={routerStyles.routerWrap}>
       <div className={routerStyles.routerInner}>
         <div className={routerStyles.linkWrap}>
-          <Link to={linkUrl}>{linkText}</Link>
+          <AniLink paintDrip hex="#418041" to={linkUrl}>
+            {linkText}
+          </AniLink>
         </div>
         <div className={routerStyles.underlineOutter}>
           <div className={routerStyles.underlineInner}>

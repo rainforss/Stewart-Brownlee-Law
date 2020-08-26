@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
 import notFoundStyles from "../styles/404.module.scss"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 const NotFound = () => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -14,7 +15,9 @@ const NotFound = () => {
         <div className={notFoundStyles.notice}>
           <h1>Page Not Found</h1>
 
-          <Link to="/">Head home</Link>
+          <AniLink paintDrip hex="#418041" to="/">
+            Head home
+          </AniLink>
         </div>
       </div>
     </Layout>

@@ -48,7 +48,7 @@
     transition: height 0.3s, transform 0.3s ease-in-out 0.3s;
   }
   &On {
-    height: calc(100vh - 0px);
+    height: 100%;
     transform: translate(0, 0);
 
     transition: height 1s 0.3s, transform 0.3s ease-in-out;

@@ -7,6 +7,7 @@ import background from "../assets/jpgs/contact.jpg"
 
 import Layout from "../components/layout"
 import RouterLink from "../components/common/routerLink"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 // export const query = graphql`
 //   query($slug: String!) {
@@ -129,7 +130,11 @@ const Blog = ({ data }) => {
               {data.allContentfulBlogPost.edges.map(edge => {
                 return (
                   <div key={edge.node.id} className={blogTemplate.postFace}>
-                    <Link to={`/blog/${edge.node.slug}`}>
+                    <AniLink
+                      paintDrip
+                      hex="#418041"
+                      to={`/blog/${edge.node.slug}`}
+                    >
                       <div className={blogTemplate.linkWrap}>
                         <div className={blogTemplate.front}>
                           <span>{edge.node.title}</span>
@@ -138,7 +143,7 @@ const Blog = ({ data }) => {
                           <span>{edge.node.title}</span>
                         </div>
                       </div>
-                    </Link>
+                    </AniLink>
                     <div className={blogTemplate.date}>
                       {edge.node.publishedDate}
                     </div>

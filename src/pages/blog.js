@@ -3,7 +3,7 @@ import { graphql, useStaticQuery, Link } from "gatsby"
 import blogStyles from "../styles/blog.module.scss"
 import Head from "../components/common/head"
 import Grid from "../components/common/grid"
-
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import Layout from "../components/layout"
 import Pagination from "../components/common/pagination"
 
@@ -79,7 +79,11 @@ const BlogPage = () => {
                   return (
                     <li key={edge.node.id} className={blogStyles.listItem}>
                       <div>
-                        <Link to={`/blog/${edge.node.slug}`}>
+                        <AniLink
+                          paintDrip
+                          hex="#418041"
+                          to={`/blog/${edge.node.slug}`}
+                        >
                           <div className={blogStyles.linkWrap}>
                             <span className={blogStyles.front}>
                               {edge.node.title}
@@ -88,7 +92,7 @@ const BlogPage = () => {
                               {edge.node.title}
                             </span>
                           </div>
-                        </Link>
+                        </AniLink>
                         <span className={blogStyles.date}>
                           {edge.node.publishedDate}
                         </span>

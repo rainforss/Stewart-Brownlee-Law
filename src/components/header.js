@@ -1,7 +1,7 @@
 import React, { useRef, useGlobal } from "reactn"
-import { Link } from "gatsby"
 import headerStyles from "./header.module.scss"
 import logo from "../assets/svgs/logo.svg"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 import MenuToggle from "./common/toggle"
 
@@ -31,14 +31,19 @@ const Header = ({ menuOpen, onMenuToggle }) => {
         }
       >
         <li className={headerStyles.navItem}>
-          <Link to="/" className={headerStyles.link}>
+          <AniLink paintDrip hex="#418041" to="/" className={headerStyles.link}>
             <span>HOME</span>
-          </Link>
+          </AniLink>
         </li>
         <li className={headerStyles.navItem}>
-          <Link to="/about" className={headerStyles.link}>
+          <AniLink
+            paintDrip
+            hex="#418041"
+            to="/about"
+            className={headerStyles.link}
+          >
             <span>ABOUT</span>
-          </Link>
+          </AniLink>
         </li>
         <li
           className={headerStyles.navItem}
@@ -46,7 +51,9 @@ const Header = ({ menuOpen, onMenuToggle }) => {
           // onMouseEnter={moveIn}
           // onMouseLeave={moveOut}
         >
-          <Link
+          <AniLink
+            paintDrip
+            hex="#418041"
             to="/services"
             className={headerStyles.link}
             onClick={() => {
@@ -55,9 +62,11 @@ const Header = ({ menuOpen, onMenuToggle }) => {
             }}
           >
             <span>SERVICES</span>
-          </Link>
+          </AniLink>
           <div ref={serviceSubMenu} className={headerStyles.subMenu}>
-            <Link
+            <AniLink
+              paintDrip
+              hex="#418041"
               to="/services"
               onClick={() => {
                 setFirstIndex(0)
@@ -65,8 +74,10 @@ const Header = ({ menuOpen, onMenuToggle }) => {
               }}
             >
               Probate Litigation & Wills
-            </Link>
-            <Link
+            </AniLink>
+            <AniLink
+              paintDrip
+              hex="#418041"
               to="/services"
               onClick={() => {
                 setFirstIndex(1)
@@ -74,8 +85,10 @@ const Header = ({ menuOpen, onMenuToggle }) => {
               }}
             >
               Insurance Litigation & Coverage
-            </Link>
-            <Link
+            </AniLink>
+            <AniLink
+              paintDrip
+              hex="#418041"
               to="/services"
               onClick={() => {
                 setFirstIndex(2)
@@ -83,8 +96,10 @@ const Header = ({ menuOpen, onMenuToggle }) => {
               }}
             >
               Injury Litigation & Negligence
-            </Link>
-            <Link
+            </AniLink>
+            <AniLink
+              paintDrip
+              hex="#418041"
               to="/services"
               onClick={() => {
                 setFirstIndex(4)
@@ -92,8 +107,10 @@ const Header = ({ menuOpen, onMenuToggle }) => {
               }}
             >
               Insolvency Litigation
-            </Link>
-            <Link
+            </AniLink>
+            <AniLink
+              paintDrip
+              hex="#418041"
               to="/services"
               onClick={() => {
                 setFirstIndex(3)
@@ -101,7 +118,7 @@ const Header = ({ menuOpen, onMenuToggle }) => {
               }}
             >
               Small Claims Guidance
-            </Link>
+            </AniLink>
           </div>
         </li>
         <li
@@ -110,20 +127,38 @@ const Header = ({ menuOpen, onMenuToggle }) => {
           // onMouseEnter={moveIn}
           // onMouseLeave={moveOut}
         >
-          <Link to="/blog" className={headerStyles.link}>
+          <AniLink
+            paintDrip
+            hex="#418041"
+            to="/blog"
+            className={headerStyles.link}
+          >
             <span>KNOWLEDGE CENTER</span>
-          </Link>
+          </AniLink>
           <div ref={blogSubMenu} className={headerStyles.subMenu}>
-            <Link to="/blog">Publications</Link>
-            <Link to="/blog">Probate Map</Link>
-            <Link to="/blog">Science & Law</Link>
-            <Link to="/blog">Evidence & Experts</Link>
+            <AniLink paintDrip hex="#418041" to="/blog">
+              Publications
+            </AniLink>
+            <AniLink paintDrip hex="#418041" to="/blog">
+              Probate Map
+            </AniLink>
+            <AniLink paintDrip hex="#418041" to="/blog">
+              Science & Law
+            </AniLink>
+            <AniLink paintDrip hex="#418041" to="/blog">
+              Evidence & Experts
+            </AniLink>
           </div>
         </li>
         <li className={headerStyles.navItem}>
-          <Link to="/contact" className={headerStyles.link}>
+          <AniLink
+            paintDrip
+            hex="#418041"
+            to="/contact"
+            className={headerStyles.link}
+          >
             <span>CONTACT</span>
-          </Link>
+          </AniLink>
         </li>
       </ul>
     </>
