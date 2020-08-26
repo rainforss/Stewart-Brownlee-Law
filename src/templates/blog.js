@@ -157,7 +157,6 @@ const Blog = ({ data }) => {
           </div>
           <div className={blogTemplate.control}>
             <div
-              role="button"
               className={blogTemplate.showRecent}
               onClick={() => setShowRecent(!showRecent)}
             >

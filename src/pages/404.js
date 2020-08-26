@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
+
 import Layout from "../components/layout"
 import notFoundStyles from "../styles/404.module.scss"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
@@ -16,7 +16,7 @@ const NotFound = () => {
           <h1>Page Not Found</h1>
 
           <AniLink paintDrip hex="#418041" to="/">
-            Head home
+            <span>Head home</span>
           </AniLink>
         </div>
       </div>

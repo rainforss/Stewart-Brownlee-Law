@@ -1,0 +1,44 @@
+@import "../styles/configure.module.scss";
+.pageWrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  .background {
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/jpgs/contactbg.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    .overlayLeft {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    .overlayRight {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  }
+  .content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    .googleMap {
+      width: 500px;
+      height: 500px;
+      z-index: 10;
+    }
+  }
+}
