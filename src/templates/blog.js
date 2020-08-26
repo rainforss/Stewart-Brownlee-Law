@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { graphql, useStaticQuery, Link } from "gatsby"
+import { graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import blogTemplate from "./blog.module.scss"
 import Head from "../components/common/head"
@@ -157,6 +157,7 @@ const Blog = ({ data }) => {
           </div>
           <div className={blogTemplate.control}>
             <div
+              role="button"
               className={blogTemplate.showRecent}
               onClick={() => setShowRecent(!showRecent)}
             >

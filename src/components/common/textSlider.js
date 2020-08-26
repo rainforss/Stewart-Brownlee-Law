@@ -7,7 +7,6 @@ function TextSlider({ textHeading, textBody, isLink, urls }) {
 
   const match = currentSlide - 1
   useEffect(() => {
-    console.log("on")
     sliderRef.current.classList.remove(sliderStyles.animated)
     window.requestAnimationFrame(function (time) {
       window.requestAnimationFrame(function (time) {
