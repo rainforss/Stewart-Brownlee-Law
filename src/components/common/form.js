@@ -13,7 +13,6 @@ const Form = ({
       method="POST"
       name="contact"
       data-netlify="true"
-      data-netlify-recaptcha="true"
       className={formStyles.form}
     >
       <input type="hidden" name="form-name" value="contact" />
@@ -36,8 +35,6 @@ const Form = ({
         <textarea name="message" rows="10" cols="60" />
         {/* <span className={formStyles.error}>{formData.messageError}</span> */}
       </label>
-
-      <div data-netlify-recaptcha="true"></div>
 
       <button type="submit">SEND REQUEST</button>
     </form>
