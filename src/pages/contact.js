@@ -20,6 +20,10 @@ const ContactPage = () => {
     message: "",
     messageError: "",
   })
+  const encode = data =>
+    Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&")
 
   const validate = () => {
     let isError = false
@@ -46,8 +50,20 @@ const ContactPage = () => {
   }
   const handleSubmit = e => {
     e.preventDefault()
+    const form = e.target
     const err = validate()
     if (!err) {
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": form.getAttribute("name"),
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: formData.subject,
+        }),
+      }).catch(error => alert(error))
       setFormData({
         name: "",
         nameError: "",
