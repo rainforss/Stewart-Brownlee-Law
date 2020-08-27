@@ -16,7 +16,7 @@ module.exports = {
     {
       resolve: `@ccalamos/gatsby-source-googlemaps-static`,
       options: {
-        key: "AIzaSyBd4vn5nmYUTEaoT_15iXlSzryic5gZWlg",
+        key: process.env.GATSBY_GOOGLE_MAP_KEY,
         center:
           "Stewart Brownlee Law, Castle Downs Road Northwest, Edmonton, AB",
         zoom: 11,
