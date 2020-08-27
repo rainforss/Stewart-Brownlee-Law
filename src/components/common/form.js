@@ -10,6 +10,7 @@ const Form = ({
 }) => {
   return (
     <form
+      method="POST"
       name="contact"
       data-netlify="true"
       data-netlify-recaptcha="true"
