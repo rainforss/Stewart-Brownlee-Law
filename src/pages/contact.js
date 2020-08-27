@@ -63,7 +63,9 @@ const ContactPage = () => {
           message: formData.message,
           subject: formData.subject,
         }),
-      }).catch(error => alert(error))
+      })
+        .then(() => alert("Sucess!"))
+        .catch(error => alert(error))
       setFormData({
         name: "",
         nameError: "",
