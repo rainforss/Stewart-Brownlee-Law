@@ -14,6 +14,23 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-transition-link",
     {
+      resolve: `@ccalamos/gatsby-source-googlemaps-static`,
+      options: {
+        key: "AIzaSyBd4vn5nmYUTEaoT_15iXlSzryic5gZWlg",
+        center:
+          "Stewart Brownlee Law, Castle Downs Road Northwest, Edmonton, AB",
+        zoom: 11,
+        markers: [
+          {
+            location: "53.616142, -113.514819",
+            color: "#418041",
+            size: "medium",
+            label: "S",
+          },
+        ],
+      },
+    },
+    {
       resolve: "gatsby-source-contentful",
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
@@ -21,6 +38,7 @@ module.exports = {
       },
     },
     "gatsby-plugin-sass",
+    "gatsby-plugin-sharp",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
