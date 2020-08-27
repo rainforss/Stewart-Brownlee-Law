@@ -16,6 +16,7 @@ const Form = ({
       onSubmit={handleSubmit}
       className={formStyles.form}
     >
+      <input type="hidden" name="form-name" value="contact" />
       <label className={formStyles.formArea}>
         Your name:
         <input
@@ -56,7 +57,7 @@ const Form = ({
         />
         <span className={formStyles.error}>{formData.messageError}</span>
       </label>
-      <input type="hidden" name="contact" value="contact" />
+
       <div data-netlify-recaptcha="true"></div>
 
       <button type="submit">SEND REQUEST</button>
