@@ -11,7 +11,6 @@ const Form = ({
   return (
     <form
       name="contact"
-      method="POST"
       data-netlify="true"
       data-netlify-recaptcha="true"
       onSubmit={handleSubmit}
