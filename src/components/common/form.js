@@ -13,10 +13,16 @@ const Form = ({
       method="POST"
       name="contact"
       data-netlify="true"
+      netlify-honeypot="bot-field"
       className={formStyles.form}
       onSubmit={handleSubmit}
     >
       <input type="hidden" name="form-name" value="contact" />
+      <p className={formStyles.hidden}>
+        <label>
+          Don't fill this out if you are human:<input name="bot-field"></input>
+        </label>
+      </p>
       <label className={formStyles.formArea}>
         Your name:
         <input
