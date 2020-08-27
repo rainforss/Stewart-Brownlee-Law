@@ -57,6 +57,8 @@ const Form = ({
         />
         <span className={formStyles.error}>{formData.messageError}</span>
       </label>
+      <input type="hidden" name="contact" value="contact" />
+      <div data-netlify-recaptcha="true"></div>
 
       <button type="submit">SEND REQUEST</button>
     </form>
