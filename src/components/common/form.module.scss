@@ -1,8 +1,113 @@
+@import "../../styles/configure.module.scss";
+
 .form {
-  .formArea {
-    display: block;
-    .error {
-      color: rgb(65, 128, 65);
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  .error {
+    color: rgb(65, 128, 65);
+    @media screen and (max-width: 800px) {
+      font-size: 13px;
+    }
+  }
+
+  .fieldWrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 0 0 15px 0;
+    height: 60px;
+    @media screen and (max-width: 800px) {
+      height: 40px;
+      font-size: 15px;
+    }
+    .formArea {
+      display: block;
+      height: 50%;
+      cursor: text;
+    }
+    input {
+      bottom: 0;
+      background-color: transparent;
+      box-shadow: none;
+      border: none;
+      color: white;
+      font-size: 18px;
+      border-bottom: rgba(255, 255, 255, 0.5) 2px solid;
+      height: 0;
+      width: 100%;
+      transition: height 0.3s ease-in-out;
+      &:focus {
+        height: 50%;
+        outline: none;
+      }
+    }
+
+    .active {
+      height: 50%;
+    }
+  }
+  .buttonWrap {
+    height: 60px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    align-self: center;
+    margin-top: 15px;
+    cursor: pointer;
+    @media screen and (max-width: 800px) {
+      height: 40px;
+      font-size: 15px;
+    }
+    .button {
+      height: 100%;
+      width: 100%;
+      border: none;
+      background-color: transparent;
+      color: white;
+      cursor: pointer;
+      &:focus {
+        outline: none;
+        border: none;
+      }
+      &:active {
+        outline: none;
+        border: none;
+      }
+    }
+    &:hover {
+      .front {
+        animation-name: slideOutRight, slideInLeft;
+        animation-duration: 0.3s, 0.3s;
+        animation-timing-function: ease, ease;
+        animation-delay: 0s, 0.3s;
+        animation-iteration-count: 1, 1;
+      }
+    }
+    .underlineOutter {
+      @include fullSizeContainer(absolute);
+      height: 3px;
+      bottom: 0;
+      overflow: hidden;
+      .underlineInner {
+        @include fullSizeContainer(relative);
+        .front {
+          @include fullSizeContainer(absolute);
+          z-index: 2;
+          background-color: rgba(255, 255, 255, 0.6);
+          transform: translate(0, 0);
+        }
+
+        .back {
+          @include fullSizeContainer(absolute);
+          z-index: 1;
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
     }
   }
 }

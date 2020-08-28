@@ -23,48 +23,72 @@ const Form = ({
           Don't fill this out if you are human:<input name="bot-field"></input>
         </label>
       </p>
-      <label className={formStyles.formArea}>
-        Your name:
+      <div className={formStyles.fieldWrap}>
+        <label htmlFor="name" className={formStyles.formArea}>
+          Your name
+        </label>
         <input
           type="text"
           name="name"
+          id="name"
           value={formData.name}
           onChange={handleChange}
+          className={formData.name ? formStyles.active : ""}
         />
-        <span className={formStyles.error}>{formData.nameError}</span>
-      </label>
-      <label className={formStyles.formArea}>
-        Your email:
+      </div>
+      <span className={formStyles.error}>{formData.nameError}</span>
+      <div className={formStyles.fieldWrap}>
+        <label htmlFor="email" className={formStyles.formArea}>
+          Your email
+        </label>
         <input
           type="text"
           name="email"
+          id="email"
           value={formData.email}
           onChange={handleChange}
+          className={formData.email ? formStyles.active : ""}
         />
-        <span className={formStyles.error}>{formData.emailError}</span>
-      </label>
-      <label className={formStyles.formArea}>
-        Subject:
+      </div>
+      <span className={formStyles.error}>{formData.emailError}</span>
+      <div className={formStyles.fieldWrap}>
+        <label htmlFor="subject" className={formStyles.formArea}>
+          Subject
+        </label>
         <input
           type="text"
           name="subject"
+          id="subject"
           value={formData.subject}
           onChange={handleChange}
+          className={formData.subject ? formStyles.active : ""}
         />
-      </label>
-      <label className={formStyles.formArea}>
-        Your message:
-        <textarea
+      </div>
+      <div className={formStyles.fieldWrap}>
+        <label htmlFor="message" className={formStyles.formArea}>
+          Your message
+        </label>
+        <input
+          type="text"
           name="message"
-          rows="10"
-          cols="60"
+          id="message"
           value={formData.message}
           onChange={handleChange}
+          className={formData.message ? formStyles.active : ""}
         />
-        <span className={formStyles.error}>{formData.messageError}</span>
-      </label>
-
-      <button type="submit">SEND REQUEST</button>
+      </div>
+      <span className={formStyles.error}>{formData.messageError}</span>
+      <div className={formStyles.buttonWrap}>
+        <button className={formStyles.button} type="submit">
+          Send request
+        </button>
+        <div className={formStyles.underlineOutter}>
+          <div className={formStyles.underlineInner}>
+            <div className={formStyles.front}></div>
+            <div className={formStyles.back}></div>
+          </div>
+        </div>
+      </div>
     </form>
   )
 }

@@ -50,17 +50,72 @@
         top: 0;
         width: 100%;
         height: 100%;
+        .map {
+          width: 100%;
+          height: 100%;
+          position: relative;
+          @media screen and (max-width: 800px) {
+            display: none;
+          }
+        }
+        .mapOverlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+
+          display: flex;
+          justify-content: center;
+          @media screen and (max-width: 800px) {
+            background-color: rgb(211, 219, 211);
+          }
+          .wrap {
+            width: 100%;
+            height: initial;
+            margin-top: 20px;
+            .contactInfo {
+              width: 100%;
+              padding: 0 15px 10px 15px;
+              height: initial;
+              display: flex;
+              align-items: center;
+              a {
+                color: black;
+                word-break: break-all;
+              }
+              span {
+                color: black;
+                word-break: break-all;
+              }
+            }
+          }
+        }
       }
       .contactForm {
+        overflow-x: hidden;
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+          width: 2px;
+        }
+        &::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 2px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: rgba(255, 255, 255, 0.5);
+          border-radius: 2px;
+        }
         position: absolute;
         top: 0;
         width: 100%;
         height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         .form {
-          display: flex;
-          justify-content: center;
-          align-items: center;
           color: white;
+          width: 80%;
         }
       }
       .active {
@@ -74,6 +129,122 @@
         transform: translate(0, 0);
         opacity: 0;
         transition: transform 1s, opacity 0.5s, left 1s;
+      }
+    }
+    .control {
+      grid-row: 4/5;
+      grid-column: 2/4;
+      position: relative;
+      .showContact {
+        position: absolute;
+        width: 100px;
+        height: 40px;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+        color: white;
+        cursor: pointer;
+        @media screen and (max-width: 800px) {
+          font-size: 13.5px;
+          width: 85px;
+        }
+        &:hover {
+          .front {
+            animation-name: slideOutRight, slideInLeft;
+            animation-duration: 0.3s, 0.3s;
+            animation-timing-function: ease, ease;
+            animation-delay: 0s, 0.3s;
+            animation-iteration-count: 1, 1;
+          }
+        }
+        div {
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .active {
+          top: 100%;
+          transform: translate(0, -100%);
+          opacity: 1;
+          transition: transform 1s, opacity 0.5s;
+        }
+        .inactive {
+          top: -100%;
+          transform: translate(0, 0);
+          opacity: 0;
+          transition: transform 1s, opacity 0.5s, top 1s;
+        }
+        .underlineOutter {
+          @include fullSizeContainer(absolute);
+          height: 3px;
+          bottom: 0;
+          overflow: hidden;
+          .underlineInner {
+            @include fullSizeContainer(relative);
+            .front {
+              @include fullSizeContainer(absolute);
+              z-index: 2;
+              background-color: rgba(255, 255, 255, 0.6);
+              transform: translate(0, 0);
+            }
+
+            .back {
+              @include fullSizeContainer(absolute);
+              z-index: 1;
+              background-color: rgba(255, 255, 255, 0.1);
+            }
+          }
+        }
+      }
+      .directions {
+        position: absolute;
+        height: 40px;
+        width: 100px;
+        top: 50%;
+        right: 0;
+        transform: translate(0, -50%);
+        &:hover {
+          .front {
+            animation-name: slideOutRight, slideInLeft;
+            animation-duration: 0.3s, 0.3s;
+            animation-timing-function: ease, ease;
+            animation-delay: 0s, 0.3s;
+            animation-iteration-count: 1, 1;
+          }
+        }
+        @media screen and (max-width: 800px) {
+          font-size: 13.5px;
+          width: 85px;
+        }
+        .link {
+          width: 100%;
+          height: 100%;
+          color: white;
+          text-decoration: none;
+          @include flexCenter(row);
+        }
+        .underlineOutter {
+          @include fullSizeContainer(absolute);
+          height: 3px;
+          bottom: 0;
+          overflow: hidden;
+          .underlineInner {
+            @include fullSizeContainer(relative);
+            .front {
+              @include fullSizeContainer(absolute);
+              z-index: 2;
+              background-color: rgba(255, 255, 255, 0.6);
+              transform: translate(0, 0);
+            }
+
+            .back {
+              @include fullSizeContainer(absolute);
+              z-index: 1;
+              background-color: rgba(255, 255, 255, 0.1);
+            }
+          }
+        }
       }
     }
   }

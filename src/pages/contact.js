@@ -4,13 +4,20 @@ import Head from "../components/common/head"
 import contactStyles from "../styles/contact.module.scss"
 import { graphql, useStaticQuery } from "gatsby"
 import Form from "../components/common/form"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faEnvelope,
+  faMapMarkerAlt,
+  faPhone,
+  faClock,
+} from "@fortawesome/free-solid-svg-icons"
 
 const ContactPage = () => {
   const [menuOpen, setMenuOpen] = useState(false)
   const onMenuToggle = () => {
     setMenuOpen(!menuOpen)
   }
-  const [showMap, setShowMap] = useState(false)
+  const [showContact, setShowContact] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     nameError: "",
@@ -31,14 +38,23 @@ const ContactPage = () => {
     if (formData.name.trim().length === 0) {
       isError = true
       errors.nameError = "Name cannot be blank"
+    } else {
+      isError = false
+      errors.nameError = ""
     }
     if (!formData.email.includes("@")) {
       isError = true
       errors.emailError = "Email needs to have a valid format"
+    } else {
+      isError = false
+      errors.emailError = ""
     }
     if (formData.message.trim().length === 0) {
       isError = true
       errors.messageError = "Message cannot be blank"
+    } else {
+      isError = false
+      errors.messageError = ""
     }
     if (isError) {
       setFormData({ ...formData, ...errors })
@@ -105,7 +121,7 @@ const ContactPage = () => {
                 className={
                   contactStyles.googleMap +
                   " " +
-                  (showMap ? contactStyles.active : contactStyles.inactive)
+                  (showContact ? contactStyles.active : contactStyles.inactive)
                 }
               >
                 <img
@@ -113,15 +129,64 @@ const ContactPage = () => {
                   alt="Location"
                   className={contactStyles.map}
                 />
-                <a href={data.staticMap.mapUrl}>
-                  <span>Get directions</span>
-                </a>
+                <div className={contactStyles.mapOverlay}>
+                  <div className={contactStyles.wrap}>
+                    <div className={contactStyles.contactInfo}>
+                      <FontAwesomeIcon
+                        icon={faEnvelope}
+                        style={{
+                          marginRight: "15px",
+                          color: "rgb(65, 128, 65)",
+                        }}
+                      ></FontAwesomeIcon>
+                      <a href="mailto:info@stewartbrownleelaw.com">
+                        info@stewartbrownleelaw.com
+                      </a>
+                    </div>
+                    <div className={contactStyles.contactInfo}>
+                      <FontAwesomeIcon
+                        icon={faPhone}
+                        style={{
+                          marginRight: "15px",
+                          color: "rgb(65, 128, 65)",
+                        }}
+                      ></FontAwesomeIcon>
+                      <a href="tel:780-800-5511">(780) 800-5511</a>
+                    </div>
+                    <div className={contactStyles.contactInfo}>
+                      <FontAwesomeIcon
+                        icon={faMapMarkerAlt}
+                        style={{
+                          marginRight: "15px",
+                          color: "rgb(65, 128, 65)",
+                        }}
+                      ></FontAwesomeIcon>
+                      <a
+                        href={data.staticMap.mapUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        15379 Castle Downs Rd NW, Edmonton, AB T5X 3Y7
+                      </a>
+                    </div>
+                    <div className={contactStyles.contactInfo}>
+                      <FontAwesomeIcon
+                        icon={faClock}
+                        style={{
+                          marginRight: "15px",
+                          color: "rgb(65, 128, 65)",
+                        }}
+                      ></FontAwesomeIcon>
+                      <span>Mon - Fri, 9AM - 5PM</span>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div
                 className={
                   contactStyles.contactForm +
                   " " +
-                  (showMap ? contactStyles.inactive : contactStyles.active)
+                  (showContact ? contactStyles.inactive : contactStyles.active)
                 }
               >
                 <div className={contactStyles.form}>
@@ -131,6 +196,49 @@ const ContactPage = () => {
                     handleSubmit={handleSubmit}
                     formData={formData}
                   />
+                </div>
+              </div>
+            </div>
+            <div className={contactStyles.control}>
+              <div
+                className={contactStyles.showContact}
+                onClick={() => setShowContact(!showContact)}
+              >
+                <div
+                  className={
+                    showContact ? contactStyles.inactive : contactStyles.active
+                  }
+                >
+                  <span>Contact Info</span>
+                </div>
+                <div
+                  className={
+                    showContact ? contactStyles.active : contactStyles.inactive
+                  }
+                >
+                  <span>Request</span>
+                </div>
+                <div className={contactStyles.underlineOutter}>
+                  <div className={contactStyles.underlineInner}>
+                    <div className={contactStyles.front}></div>
+                    <div className={contactStyles.back}></div>
+                  </div>
+                </div>
+              </div>
+              <div className={contactStyles.directions}>
+                <a
+                  href={data.staticMap.mapUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={contactStyles.link}
+                >
+                  <span>Directions</span>
+                </a>
+                <div className={contactStyles.underlineOutter}>
+                  <div className={contactStyles.underlineInner}>
+                    <div className={contactStyles.front}></div>
+                    <div className={contactStyles.back}></div>
+                  </div>
                 </div>
               </div>
             </div>

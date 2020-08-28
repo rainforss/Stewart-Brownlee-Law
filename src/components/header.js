@@ -16,7 +16,11 @@ const Header = ({ menuOpen, onMenuToggle }) => {
       <div className={headerStyles.navWrap}>
         <div className={headerStyles.nav}>
           <AniLink paintDrip hex="#418041" to="/">
-            <img src={logo} className={headerStyles.headerLogo} />
+            <img
+              src={logo}
+              className={headerStyles.headerLogo}
+              alt="Site Logo"
+            />
           </AniLink>
         </div>
       </div>
