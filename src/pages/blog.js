@@ -60,7 +60,13 @@ const BlogPage = () => {
           <div className={blogStyles.background}>
             <div className={blogStyles.overlay}></div>
           </div>
-          <div className={blogStyles.content}>
+          <div
+            className={
+              blogStyles.content +
+              " " +
+              (menuOpen ? blogStyles.out : blogStyles.in)
+            }
+          >
             <div className={blogStyles.heading}>
               <h2 className={blogStyles.text}>
                 Confidentials <span className={blogStyles.black}>cannot</span>{" "}

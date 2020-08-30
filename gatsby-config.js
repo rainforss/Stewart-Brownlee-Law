@@ -9,6 +9,10 @@ module.exports = {
   siteMetadata: {
     title: "Stewart Brownlee Law",
     author: "Jake Chen",
+    description:
+      "Alberta law office based in North Edmonton practicing litigations and law matters.",
+    url: "https://dreamy-hawking-5cf65d.netlify.app",
+    image: "/home.png",
   },
   plugins: [
     "gatsby-plugin-react-helmet",

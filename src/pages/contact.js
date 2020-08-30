@@ -115,7 +115,13 @@ const ContactPage = () => {
             <div className={contactStyles.overlayLeft}></div>
             <div className={contactStyles.overlayRight}></div>
           </div>
-          <div className={contactStyles.content}>
+          <div
+            className={
+              contactStyles.content +
+              " " +
+              (menuOpen ? contactStyles.out : contactStyles.in)
+            }
+          >
             <div className={contactStyles.contentWrap}>
               <div
                 className={
